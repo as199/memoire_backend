@@ -1,0 +1,771 @@
+############################### TOKEN ######################################################
+### ADMIN TOKEN
+POST {{URL}}/login
+Content-Type: application/json
+
+{
+  "username": "dione58242",
+  "password":"passer"
+}
+
+### CHEF DEPARTEMENT TOKEN
+POST {{URL}}/login
+Content-Type: application/json
+
+{
+  "username": "mib2021",
+  "password":"passer"
+}
+
+### CHEF SERVICE TOKEN
+POST {{URL}}/login
+Content-Type: application/json
+
+{
+  "username": "awa2021",
+  "password":"passer"
+}
+
+### AUDITEUR TOKEN
+POST {{URL}}/login
+Content-Type: application/json
+
+{
+  "username": "fatou2021",
+  "password":"passer"
+}
+
+<> 2021-11-27T191508.200.json
+
+############################### API LISTE ######################################################
+GET {{URL}}
+Content-Type: application/json
+
+############################### DEPARTEMENT ######################################################
+
+### ajouter departement
+POST {{URL}}/departements
+Content-Type: application/json
+
+{
+  "libelle": "DEPARTEMENT TEST 2",
+  "responsables": "14"
+}
+
+### lister les departement
+GET {{URL}}/departements
+Content-Type: application/json
+
+### lister un departement
+GET {{URL}}/departements/5
+Content-Type: application/json
+
+### lister les utilisateurs d'un departement
+GET {{URL}}/departements/utilisateurs/5
+Content-Type: application/json
+
+### lister les entites d'un departement
+GET {{URL}}/departements/entites/5
+Content-Type: application/json
+
+### modifier un departement
+PUT {{URL}}/departements/5
+Content-Type: application/json
+
+{
+  "libelle": "DEPARTEMENT MODIFIER",
+  "responsable": "18"
+}
+
+### bloquer ou debloquer un departement
+DELETE {{URL}}/departements/5
+Content-Type: application/json
+
+############################### UTILISATEUR ######################################################
+
+### listes des utilisateurs
+GET {{URL}}/utilisateurs
+Content-Type: application/json
+
+### ajouter utilisateurs
+POST {{URL}}/utilisateurs
+Content-Type: application/json
+
+{
+  "username": "test2022",
+  "password": "passer",
+  "nomComplet": "Test Fall",
+  "status": true,
+  "nbrJrFormation": 0,
+  "entreeAt": "2021-11-27T07:33:46.620Z",
+  "sortieAt": "2021-11-27T07:33:46.621Z",
+  "profil": "2",
+  "departements": "5"
+
+}
+
+
+### update utilisateur
+PUT {{URL}}/utilisateurs/17
+Content-Type: application/json
+
+{
+  "username": "Mamy2022",
+  "password": "passer",
+  "nomComplet": "Mamy Fall",
+  "status": true,
+  "nbrJrFormation": 0,
+  "entreeAt": "2021-11-27T07:33:46.620Z",
+  "sortieAt": "2021-11-27T07:33:46.621Z",
+  "profil": "4",
+  "departements": "1",
+  "entite": "2"
+}
+
+### bloquer ou debloquer utilisateurs
+DELETE {{URL}}/utilisateurs/12
+Content-Type: application/json
+
+
+### lister un utilisateur
+GET {{URL}}/utilisateurs/12
+Content-Type: application/json
+
+############################### THEMATIQUE ######################################################
+### ajouter thematique
+POST {{URL}}/thematiques
+Content-Type: application/json
+
+{
+  "libelle":"Comptabilite",
+  "status": true
+}
+
+### lister tous les thematiques
+GET {{URL}}/thematiques
+Content-Type: application/json
+
+### lister une thematique
+GET {{URL}}/thematiques/1
+Content-Type: application/json
+
+### modifier une thematique
+PUT {{URL}}/thematiques/2
+Content-Type: application/json
+
+{
+  "libelle":"Comptabilites",
+  "status": true
+}
+
+### bloquer ou debloquer une thematique
+DELETE {{URL}}/thematiques/1
+Content-Type: application/json
+
+############################### COMPETENCE ######################################################
+
+### ajouter competence
+POST {{URL}}/competences
+Content-Type: application/json
+
+{
+  "libelle":"Testeur",
+  "status": true,
+  "compCnceIt": "Général",
+  "thematiques": "3"
+}
+
+<> 2021-11-27T185425.201.json
+
+### lister tous les competences
+GET {{URL}}/competences
+Content-Type: application/json
+
+### lister une competence
+GET {{URL}}/competences/1
+Content-Type: application/json
+
+<> 2021-11-27T185559.200.json
+
+### modifier une competence
+PUT {{URL}}/competences/3
+Content-Type: application/json
+
+{
+  "libelle":"Maths Financiéres",
+  "status": true,
+  "compCnceIt": "Général",
+  "thematique": "2"
+}
+
+<> 2021-11-27T185512.200.json
+
+### bloquer ou debloquer une competence
+DELETE {{URL}}/competences/1
+Content-Type: application/json
+
+############################### CERTIFICATION ######################################################
+
+### ajouter certification
+POST {{URL}}/certifications
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
+
+{
+  "libelle":"SQL",
+  "obtenu": "2021-11-27T07:33:46.620Z"
+}
+
+<> 2021-11-27T193023.201.json
+<> 2021-11-27T193016.201.json
+<> 2021-11-27T192942.201.json
+<> 2021-11-27T192432.500.html
+<> 2021-11-27T192003.500.html
+<> 2021-11-27T191649.500.json
+
+### lister tous les certifications
+GET {{URL}}/certifications
+Content-Type: application/json
+
+<> 2021-11-27T193503.200.json
+<> 2021-11-27T193031.200.json
+
+### lister une certification
+GET {{URL}}/certifications/2
+Content-Type: application/json
+
+<> 2021-11-27T193056.200.json
+<> 2021-11-27T193039.404.json
+
+
+### modifier une certification
+PUT {{URL}}/certifications/2
+Content-Type: application/json
+
+{
+  "libelle":"Python",
+  "obtenu": "2020-11-27T07:33:46.620Z"
+}
+
+<> 2021-11-27T193428.200.json
+<> 2021-11-27T193351.200.json
+<> 2021-11-27T193125.500.html
+
+### supprimer une certification
+DELETE {{URL}}/certifications/3
+Content-Type: application/json
+
+############################### DIPLOME ######################################################
+### ajouter diplome
+POST {{URL}}/diplomes
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
+
+{
+  "libelle":"Baccalaureat L2",
+  "obtenu": "2020-11-27T07:33:46.620Z"
+}
+
+<> 2021-11-27T194328.201.json
+<> 2021-11-27T194227.201.json
+<> 2021-11-27T194157.201.json
+<> 2021-11-27T193942.500.html
+
+### lister tous les diplomes
+GET {{URL}}/diplomes
+Content-Type: application/json
+
+<> 2021-11-27T194252.200.json
+
+### lister un diplome
+GET {{URL}}/diplomes/2
+Content-Type: application/json
+
+### modifier un diplome
+PUT {{URL}}/diplomes/4
+Content-Type: application/json
+
+{
+  "libelle":"Baccalaureat L3",
+  "obtenu": "2020-11-27T07:33:46.620Z"
+}
+
+<> 2021-11-27T194411.200.json
+
+### supprimer un diplome
+DELETE {{URL}}/diplomes/4
+Content-Type: application/json
+
+############################### ENTITE ######################################################
+
+### ajouter entite
+POST {{URL}}/entites
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_CHEF_SERVICE}}
+
+{
+"libelle": "SAMS",
+"status": true,
+"departements": "5"
+}
+
+<> 2021-11-27T201222.201.json
+<> 2021-11-27T195252.201.json
+
+### lister tous les entites
+GET {{URL}}/entites
+Content-Type: application/json
+
+### lister une entite
+GET {{URL}}/entites/2
+Content-Type: application/json
+
+### modifier une entite
+PUT {{URL}}/entites/5
+Content-Type: application/json
+
+{
+  "libelle": "SAMO",
+  "status": true,
+  "departement": "2",
+  "utilisateurs": [12],
+  "responsable": 17
+}
+
+<> 2021-11-27T203136.200.json
+
+### bloquer ou debloquer une entite
+DELETE {{URL}}/entites/3
+Content-Type: application/json
+
+############################### FONCTION ######################################################
+
+### ajouter fonction
+POST {{URL}}/fonctions
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
+
+{
+  "libelle": "AUDITEUR",
+  "status": true
+}
+
+<> 2021-11-27T203559.201.json
+
+### lister tous les fonctions
+GET {{URL}}/fonctions
+Content-Type: application/json
+
+<> 2021-11-27T203610.200.json
+
+### lister une fonction
+GET {{URL}}/fonctions/2
+Content-Type: application/json
+
+<> 2021-11-27T203653.200.json
+
+### modifier une fonction
+PUT {{URL}}/fonctions/3
+Content-Type: application/json
+
+{
+  "libelle": "SAM",
+  "status": true
+}
+
+### bloquer ou debloquer une fonction
+DELETE {{URL}}/fonctions/3
+Content-Type: application/json
+
+######################################  NOTATION ###############################################
+
+### ajouter notation
+POST {{URL}}/notations
+Content-Type: application/json
+
+{
+  "note": 14,
+  "utilisateurs": 9,
+  "competences": 3,
+  "periodes": "2021-09-07"
+}
+
+<> 2021-11-27T221907.201.json
+
+### lister les notations
+GET {{URL}}/notations
+Content-Type: application/json
+
+<> 2021-11-27T222000.200.json
+
+### lister une notation
+GET {{URL}}/notations/1
+Content-Type: application/json
+
+<> 2021-11-27T222056.200.json
+
+### update une notation
+PUT {{URL}}/notations/4
+Content-Type: application/json
+
+{
+  "note": 12,
+  "utilisateur": 12,
+  "competence": 3,
+  "periode": "2021-06-15"
+}
+
+<> 2021-11-27T223453.200.json
+
+################################### MISSION ################################################
+
+### ajouter missions
+POST {{URL}}/missions
+Content-Type: application/json
+
+{
+  "libelle": "mission 2",
+  "annee": "2021",
+  "debutAt": "2021-11-28T10:34:29.598Z",
+  "finAt": "2021-11-30T10:34:29.598Z",
+  "nbreJrReel": 3,
+  "nbreJrPrevu": 25,
+  "responables": "12",
+  "utilisateur": [
+    14
+  ],
+  "impact": 2,
+  "gravite": 2,
+  "tauxCimTeste": 20.0,
+  "commentaire": "ceci est le commentaire de la mission 2",
+  "entites": "3"
+}
+
+### lister les missions
+GET {{URL}}/missions
+Content-Type: application/json
+
+### lister une mission
+GET {{URL}}/missions/3
+Content-Type: application/json
+
+### modifier une mission
+PUT {{URL}}/missions/3
+Content-Type: application/json
+
+{
+  "libelle": "mission 2",
+  "annee": "2021",
+  "debutAt": "2021-11-28T10:34:29.598Z",
+  "finAt": "2021-11-30T10:34:29.598Z",
+  "nbreJrReel": 3,
+  "nbreJrPrevu": 25,
+  "responable": "12",
+  "utilisateurs": [
+    13,14
+  ],
+  "impact": 2,
+  "gravite": 2,
+  "tauxCimTeste": 20.0,
+  "commentaire": "ceci est le commentaire de la mission 2 mise à jour",
+  "entite": "3"
+}
+
+### bloquer ou debloquer missions
+DELETE {{URL}}/missions/3
+Content-Type: application/json
+
+################################## EVALUATION ########################################
+
+### ajouter evaluation
+POST {{URL}}/evaluations
+Content-Type: application/json
+
+{
+  "libelle": [
+    "EVALUATION 2"
+  ],
+  "evaluation": [
+    "evaluation 1",
+    "evaluation 2",
+    "evaluation 3",
+    "evaluation 4",
+    "evaluation 5",
+    "evaluation 6",
+    "evaluation 7",
+    "evaluation 8",
+    "evaluation 9",
+    "evaluation 10",
+    "evaluation 11",
+    "evaluation 12",
+    "evaluation 13"
+  ],
+  "commentaireAudManager": [
+    "commentaire auditeur manager numero 1",
+    "commentaire auditeur manager numero 2",
+    "commentaire auditeur manager numero 3",
+    "commentaire auditeur manager numero 4",
+    "commentaire auditeur manager numero 5",
+    "commentaire auditeur manager numero 6",
+    "commentaire auditeur manager numero 7",
+    "commentaire auditeur manager numero 8",
+    "commentaire auditeur manager numero 9",
+    "commentaire auditeur manager numero 10",
+    "commentaire auditeur manager numero 11",
+    "commentaire auditeur manager numero 12",
+    "commentaire auditeur manager numero 13"
+  ],
+  "commentaireAud": [
+    "commentaire auditeur numéro 1",
+    "commentaire auditeur numéro 2",
+    "commentaire auditeur numéro 3",
+    "commentaire auditeur numéro 4",
+    "commentaire auditeur numéro 5",
+    "commentaire auditeur numéro 6",
+    "commentaire auditeur numéro 7",
+    "commentaire auditeur numéro 8",
+    "commentaire auditeur numéro 9",
+    "commentaire auditeur numéro 10",
+    "commentaire auditeur numéro 11",
+    "commentaire auditeur numéro 12",
+    "commentaire auditeur numéro 13"
+  ],
+  "missions": "3"
+}
+
+### lister les evaluations
+GET {{URL}}/evaluations
+Content-Type: application/json
+
+### lister une evaluation
+GET {{URL}}/evaluations/2
+Content-Type: application/json
+
+#################################### RAPPORT #################################
+
+### ajouter rapport
+POST {{URL}}/rapports
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="files"; filename="C:\Users\Dione\Downloads\Documents\CV_Assane_Dione.pdf"
+Content-Type: application/pdf
+
+--WebAppBoundary
+Content-Disposition: form-data; name="constats"
+
+Ceci est le constacts numéro 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="causes"
+
+Ceci est la cause numéro 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="recommandation"
+
+Ceci est le constacts numéro 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="missions"
+
+3
+
+### lister les rapports
+GET {{URL}}/rapports
+Content-Type: application/json
+
+### lister un rapport
+GET {{URL}}/rapports/2
+Content-Type: application/json
+
+### modifier un rapport
+POST {{URL}}/rapports/2
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="rapport"; filename="C:\Users\Dione\Downloads\Documents\CV_Assane_Dione.pdf"
+Content-Type: application/pdf
+
+--WebAppBoundary
+Content-Disposition: form-data; name="constats"
+
+Ceci est le constacts numéro 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="causes"
+
+Ceci est la cause numéro 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="recommandation"
+
+Ceci est le constacts numéro 2
+
+--WebAppBoundary
+Content-Disposition: form-data; name="mission"
+
+3
+
+### bloquer ou debloquer
+DELETE {{URL}}/rapports/2
+Content-Type: application/json
+
+####################### REPORTING CODIR ###############################"
+
+### ajouter reporting
+POST {{URL}}/reporting_codirs
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
+
+{
+  "fonctionne": "test numero 3",
+  "pointCoordination": "test numero 3",
+  "difficultes": "test numero 3"
+}
+
+### lister les reporting codirs
+GET {{URL}}/reporting_codirs
+Content-Type: application/json
+
+### lister un reporting codirs
+GET {{URL}}/reporting_codirs/1
+Content-Type: application/json
+
+### modifier reporting codir
+PUT {{URL}}/reporting_codirs/1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
+
+{
+  "fonctionne": "test numero 1",
+  "pointCoordination": "test numero point 1",
+  "difficultes": "test numero 1"
+}
+
+### supprimer un reporting codir
+DELETE {{URL}}/reporting_codirs/3
+Content-Type: application/json
+
+######################## STATUT ############################################
+
+### ajoout un statut
+POST {{URL}}/statuts
+Content-Type: application/json
+
+{
+  "libelle": "TESTER"
+}
+
+### lister les statuts
+GET {{URL}}/statuts
+Content-Type: application/json
+
+### lister un statut
+GET {{URL}}/statuts/1
+Content-Type: application/json
+
+### modifier un statut
+PUT {{URL}}/statuts/4
+Content-Type: application/json
+
+{
+  "libelle": "Retester"
+}
+
+### bloquer ou debloquer un statut
+DELETE {{URL}}/statuts/4
+Content-Type: application/json
+
+################################### SUIVI ACTIVITE ##########################################
+
+### ajouter suivi activite
+POST {{URL}}/suivi_activites
+Content-Type: application/json
+
+{
+  "fait": "Test 2",
+  "resteFaire": "retester 2",
+  "difficultes": "pas de difficulté",
+  "statuts": "1",
+  "missions": "2"
+}
+
+### lister les suivi activites
+GET {{URL}}/suivi_activites
+Content-Type: application/json
+
+### lister un suivi activite
+GET {{URL}}/suivi_activites/1
+Content-Type: application/json
+### ajouter suivi activite
+PUT {{URL}}/suivi_activites/1
+Content-Type: application/json
+
+{
+  "fait": "Test 1",
+  "resteFaire": "retester 1",
+  "difficultes": "pas de difficulté",
+  "statut": "1",
+  "mission": "2"
+}
+
+### supprimer un suivi activite
+DELETE {{URL}}/suivi_activites/2
+Content-Type: application/json
+
+####################################### SUIVI REPORT ##########################################
+
+### ajouter suivi report
+POST {{URL}}/suivi_reports
+Content-Type: application/json
+
+{
+  "reportRecu": [
+    10,10,10
+  ],
+  "reportValide": [
+    4,6,3
+  ],
+  "reportRejete": [
+    5,2,3
+  ],
+  "reportInstance": [
+    1,2,4
+  ],
+  "solde": 30,
+  "entites": "3"
+}
+
+### lister les suivi reports
+GET {{URL}}/suivi_reports
+Content-Type: application/json
+
+### lister un suivi report
+GET {{URL}}/suivi_reports/1
+Content-Type: application/json
+
+### modifier suivi report
+PUT {{URL}}/suivi_reports/1
+Content-Type: application/json
+
+{
+  "reportRecu": [
+    11,10,10
+  ],
+  "reportValide": [
+    4,6,3
+  ],
+  "reportRejete": [
+    5,2,3
+  ],
+  "reportInstance": [
+    2,2,4
+  ],
+  "solde": 31,
+  "entite": "3"
+}
+
+### supprimer un suivi report
+DELETE {{URL}}/suivi_reports/2
+Content-Type: application/json
