@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
  ** @ApiResource(
  *     attributes={
- *         "security"="is_granted('ROLE_ADMIN') || is_granted('ROLE_CHEF_DEPARTEMENT') || is_granted('ROLE_CHEF_SERVICE')"
+ *         "security"="is_granted('ROLE_ADMIN') || is_granted('ROLE_CHEF_DEPARTEMENT') || is_granted('ROLE_CHEF_SERVICE')|| is_granted('ROLE_AUDITEUR')"
  *     },
  *   normalizationContext={"groups"={"read_user"}}
  * )
