@@ -103,4 +103,31 @@ class MissionController extends AbstractController
 
     }
 
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/api/mes_missions', name: 'myMissions', methods:["GET"])]
+    public function myMissions(): JsonResponse
+    {
+        $data=[];
+        $id = $this->getUser()->getId();
+        $missions= $this->entityManager->getRepository(Mission::class)->findOneBy(['utilisateurs'=>(int)$id]);
+        foreach ($missions as $mission) {
+            $data[]['id']= $mission->getId();
+            $data[]['libelle']= $mission->getLibelle();
+            $data[]['annee']= $mission->getAnnee();
+            $data[]['debutAt']= $mission->getDebutAt();
+            $data[]['debutAt']= $mission->getDebutAt();
+            $data[]['debutAt']= $mission->getDebutAt();
+            $data[]['nbreJrReel']= $mission->getNbreJrReel();
+            $data[]['nbreJrPrevu']= $mission->getNbreJrPrevu();
+            $data[]['impact']= $mission->getNimpact();
+            $data[]['gravite']= $mission->getGravite();
+        }
+         return $this->json(["data"=>$data]);
+    
+
+    }
+
 }
