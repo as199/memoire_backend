@@ -120,6 +120,12 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $certifications;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read_user","read_diplom", "read_fonc","read_ent", "read_miss", "read_dept","read_nota"})
+     */
+    private $email;
+
     public function __construct()
     {
         $this->notations = new ArrayCollection();
@@ -435,6 +441,18 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
                 $certification->setUtilisateur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
