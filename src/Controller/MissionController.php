@@ -116,26 +116,21 @@ class MissionController extends AbstractController
             foreach ($missions as $mission) {
                 $users = $mission->getUtilisateurs();
                 foreach ($users as $user){
-                    dd($user);
+                    if($user->getId() === (int)$id) {
+                        $data[]['id'] = $mission->getId();
+                        $data[]['libelle'] = $mission->getLibelle();
+                        $data[]['annee'] = $mission->getAnnee();
+                        $data[]['debutAt'] = $mission->getDebutAt();
+                        $data[]['debutAt'] = $mission->getDebutAt();
+                        $data[]['debutAt'] = $mission->getDebutAt();
+                        $data[]['nbreJrReel'] = $mission->getNbreJrReel();
+                        $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
+                        $data[]['impact'] = $mission->getNimpact();
+                        $data[]['gravite'] = $mission->getGravite();
+                    }
                 }
-
-//                if(($mission->getUtilisateurs())->getId() === (int)$id) {
-//                    $data[]['id'] = $mission->getId();
-//                    $data[]['libelle'] = $mission->getLibelle();
-//                    $data[]['annee'] = $mission->getAnnee();
-//                    $data[]['debutAt'] = $mission->getDebutAt();
-//                    $data[]['debutAt'] = $mission->getDebutAt();
-//                    $data[]['debutAt'] = $mission->getDebutAt();
-//                    $data[]['nbreJrReel'] = $mission->getNbreJrReel();
-//                    $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
-//                    $data[]['impact'] = $mission->getNimpact();
-//                    $data[]['gravite'] = $mission->getGravite();
-//
-//                }
-                $data[] = $mission->getUtilisateurs();
         }
-
-         return $this->json(["data"=>$id]);
+         return $this->json(["data"=>$data]);
 
 
     }
