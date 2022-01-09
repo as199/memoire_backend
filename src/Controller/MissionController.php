@@ -112,19 +112,22 @@ class MissionController extends AbstractController
     {
         $data=[];
         $id = $this->getUser()->getId();
-        $missions= $this->entityManager->getRepository(Mission::class)->findOneBy(['utilisateurs'=>(int)$id]);
-        foreach ($missions as $mission) {
-            $data[]['id']= $mission->getId();
-            $data[]['libelle']= $mission->getLibelle();
-            $data[]['annee']= $mission->getAnnee();
-            $data[]['debutAt']= $mission->getDebutAt();
-            $data[]['debutAt']= $mission->getDebutAt();
-            $data[]['debutAt']= $mission->getDebutAt();
-            $data[]['nbreJrReel']= $mission->getNbreJrReel();
-            $data[]['nbreJrPrevu']= $mission->getNbreJrPrevu();
-            $data[]['impact']= $mission->getNimpact();
-            $data[]['gravite']= $mission->getGravite();
+        $missions= $this->entityManager->getRepository(Mission::class)->findBy(['utilisateurs'=>(int)$id]);
+        if(!empty($missions)){
+            foreach ($missions as $mission) {
+                $data[]['id']= $mission->getId();
+                $data[]['libelle']= $mission->getLibelle();
+                $data[]['annee']= $mission->getAnnee();
+                $data[]['debutAt']= $mission->getDebutAt();
+                $data[]['debutAt']= $mission->getDebutAt();
+                $data[]['debutAt']= $mission->getDebutAt();
+                $data[]['nbreJrReel']= $mission->getNbreJrReel();
+                $data[]['nbreJrPrevu']= $mission->getNbreJrPrevu();
+                $data[]['impact']= $mission->getNimpact();
+                $data[]['gravite']= $mission->getGravite();
+            }
         }
+
          return $this->json(["data"=>$data]);
     
 
