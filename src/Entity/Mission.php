@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Entity(repositoryClass=MissionRepository::class)
  * @ApiResource(
  *     attributes={
- *         "security"="is_granted('ROLE_CHEF_DEPARTEMENT') || is_granted('ROLE_CHEF_SERVICE')"
+ *         "security"="is_granted('ROLE_CHEF_DEPARTEMENT') || is_granted('ROLE_CHEF_SERVICE') || is_granted('ROLE_AUDITEUR'),"
  *     },
  *      normalizationContext={"groups"={"read_miss"}}
  * )
