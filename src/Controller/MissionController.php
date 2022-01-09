@@ -112,8 +112,13 @@ class MissionController extends AbstractController
     {
         $data=[];
         $id = $this->getUser()->getId();
+<<<<<<< HEAD
         $missions= $this->entityManager->getRepository(Mission::class)->findBy(['utilisateurs'=>(int)$id]);
         if(!empty($missions)){
+=======
+        $missions= $this->entityManager->getRepository(Mission::class)->findOneBy(['utilisateurs'=>(int)$id]);
+        if(!empty($mission)){
+>>>>>>> 92e1340e7f7693cb9f849f10ceadf096f7f79300
             foreach ($missions as $mission) {
                 $data[]['id']= $mission->getId();
                 $data[]['libelle']= $mission->getLibelle();
