@@ -114,6 +114,7 @@ class MissionController extends AbstractController
         $id = ($this->getUser())->getId();
         $missions= $this->entityManager->getRepository(Mission::class)->findAll();
             foreach ($missions as $mission) {
+                dd($mission->getUtilisateurs());
 //                if(($mission->getUtilisateurs())->getId() === (int)$id) {
 //                    $data[]['id'] = $mission->getId();
 //                    $data[]['libelle'] = $mission->getLibelle();
@@ -127,7 +128,7 @@ class MissionController extends AbstractController
 //                    $data[]['gravite'] = $mission->getGravite();
 //
 //                }
-                $data[] = ($mission->getUtilisateurs())->getId();
+                $data[] = $mission->getUtilisateurs();
         }
 
          return $this->json(["data"=>$id]);
