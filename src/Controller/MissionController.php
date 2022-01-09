@@ -116,7 +116,6 @@ class MissionController extends AbstractController
             foreach ($missions as $mission) {
                 $users = $mission->getUtilisateurs();
                 foreach ($users as $user){
-                    dd($user->getId());
                     if((int)$user->getId() === (int)$id) {
                         dd($mission);
                         $data[]['id'] = $mission->getId();
