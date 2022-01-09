@@ -111,11 +111,11 @@ class MissionController extends AbstractController
     public function myMissions(): JsonResponse
     {
         $data=[];
-        $id = $this->getUser()->getId();
+        $id = ($this->getUser())->getId();
         $missions= $this->entityManager->getRepository(Mission::class)->findAll();
-        if($missions){
-            foreach ($missions as $mission) {
-                if($mission->getUtilisateurs()->getId() === (int)$id) {
+//        if($missions){
+//            foreach ($missions as $mission) {
+//                if(($mission->getUtilisateurs())->getId() == (int)$id) {
 //                    $data[]['id'] = $mission->getId();
 //                    $data[]['libelle'] = $mission->getLibelle();
 //                    $data[]['annee'] = $mission->getAnnee();
@@ -126,13 +126,13 @@ class MissionController extends AbstractController
 //                    $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
 //                    $data[]['impact'] = $mission->getNimpact();
 //                    $data[]['gravite'] = $mission->getGravite();
-                    $data[] = $mission;
-                }
+//                    $data[] = $mission;
+//                }
+//
+//            }
+//        }
 
-            }
-        }
-
-         return $this->json(["data"=>$data]);
+         return $this->json(["data"=>$id]);
 
 
     }
