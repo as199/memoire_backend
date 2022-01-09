@@ -111,25 +111,27 @@ class MissionController extends AbstractController
     public function myMissions(): JsonResponse
     {
         $data=[];
+        $i = 0;
         $id = ($this->getUser())->getId();
         $missions= $this->entityManager->getRepository(Mission::class)->findAll();
             foreach ($missions as $mission) {
                 $users = $mission->getUtilisateurs();
                 foreach ($users as $user){
                     if((int)$user->getId() === (int)$id) {
-                        $data[]['id'] = $mission->getId();
-                        $data[]['libelle'] = $mission->getLibelle();
-                        $data[]['annee'] = $mission->getAnnee();
-                        $data[]['debutAt'] = $mission->getDebutAt();
-                        $data[]['finAt'] = $mission->getFinAt();
-                        $data[]['responsable'] = $mission->getResponsable();
-                        $data[]['nbreJrReel'] = $mission->getNbreJrReel();
-                        $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
-                        $data[]['impact'] = $mission->getImpact();
-                        $data[]['gravite'] = $mission->getGravite();
-                        $data[]['tauxCimTeste'] = $mission->getTauxCimTeste();
-                        $data[]['commentaire'] = $mission->getCommentaire();
+                        $data[$i]['id'] = $mission->getId();
+                        $data[$i]['libelle'] = $mission->getLibelle();
+                        $data[$i]['annee'] = $mission->getAnnee();
+                        $data[$i]['debutAt'] = $mission->getDebutAt();
+                        $data[$i]['finAt'] = $mission->getFinAt();
+                        $data[$i]['responsable'] = $mission->getResponsable();
+                        $data[$i]['nbreJrReel'] = $mission->getNbreJrReel();
+                        $data[$i]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
+                        $data[$i]['impact'] = $mission->getImpact();
+                        $data[$i]['gravite'] = $mission->getGravite();
+                        $data[$i]['tauxCimTeste'] = $mission->getTauxCimTeste();
+                        $data[$i]['commentaire'] = $mission->getCommentaire();
                     }
+                    $i++;
                 }
         }
          return $this->json(["data"=>$data]);
