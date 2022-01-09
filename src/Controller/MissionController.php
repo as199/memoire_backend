@@ -113,7 +113,7 @@ class MissionController extends AbstractController
         $data=[];
         $id = $this->getUser()->getId();
         $missions= $this->entityManager->getRepository(Mission::class)->findAll();
-        if(!empty($mission)){
+        if(!empty($missions)){
             foreach ($missions as $mission) {
                 if($mission->getUtilisateurs()->getId() === (int)$id) {
                     $data[]['id'] = $mission->getId();
