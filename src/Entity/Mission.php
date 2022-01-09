@@ -24,13 +24,13 @@ class Mission
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"read_miss","read_ent","read_rapp","read_eval", "read_suivi_activite"})
+     * @Groups({"read_miss","read_ent","read_rapp","read_eval", "read_suivi_activite", "read_user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"read_miss", "read_ent","read_rapp","read_eval", "read_suivi_activite"})
+     * @Groups({"read_miss", "read_ent","read_rapp","read_eval", "read_suivi_activite", "read_user"})
      */
     private $libelle;
 

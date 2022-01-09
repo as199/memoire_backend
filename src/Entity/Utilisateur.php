@@ -32,7 +32,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"read_user"})
+     * @Groups({"read_user", "read_miss"})
      */
     private $username;
 
@@ -107,6 +107,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="utilisateurs")
+     * @Groups({"read_user"})
      */
     private $missions;
 
