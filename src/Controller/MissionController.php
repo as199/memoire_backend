@@ -115,7 +115,7 @@ class MissionController extends AbstractController
         $missions= $this->entityManager->getRepository(Mission::class)->findAll();
         if($missions){
             foreach ($missions as $mission) {
-//                if($mission->getUtilisateurs()->getId() === (int)$id) {
+                if($mission->getUtilisateurs()->getId() === (int)$id) {
 //                    $data[]['id'] = $mission->getId();
 //                    $data[]['libelle'] = $mission->getLibelle();
 //                    $data[]['annee'] = $mission->getAnnee();
@@ -126,8 +126,9 @@ class MissionController extends AbstractController
 //                    $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
 //                    $data[]['impact'] = $mission->getNimpact();
 //                    $data[]['gravite'] = $mission->getGravite();
-//                }
-                $data[] = $mission->getUtilisateurs();
+                    $data[] = $mission;
+                }
+
             }
         }
 
