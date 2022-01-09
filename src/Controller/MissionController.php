@@ -117,17 +117,18 @@ class MissionController extends AbstractController
                 $users = $mission->getUtilisateurs();
                 foreach ($users as $user){
                     if((int)$user->getId() === (int)$id) {
-                        dd($mission);
                         $data[]['id'] = $mission->getId();
                         $data[]['libelle'] = $mission->getLibelle();
                         $data[]['annee'] = $mission->getAnnee();
                         $data[]['debutAt'] = $mission->getDebutAt();
-                        $data[]['debutAt'] = $mission->getDebutAt();
-                        $data[]['debutAt'] = $mission->getDebutAt();
+                        $data[]['finAt'] = $mission->getFinAt();
+                        $data[]['responsable'] = $mission->getResponsable();
                         $data[]['nbreJrReel'] = $mission->getNbreJrReel();
                         $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
-                        $data[]['impact'] = $mission->getNimpact();
+                        $data[]['impact'] = $mission->getImpact();
                         $data[]['gravite'] = $mission->getGravite();
+                        $data[]['tauxCimTeste'] = $mission->getTauxCimTeste();
+                        $data[]['commentaire'] = $mission->getCommentaire();
                     }
                 }
         }
