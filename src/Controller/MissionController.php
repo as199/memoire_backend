@@ -113,24 +113,24 @@ class MissionController extends AbstractController
         $data=[];
         $id = $this->getUser()->getId();
         $missions= $this->entityManager->getRepository(Mission::class)->findAll();
-        if(!empty($missions)){
-            foreach ($missions as $mission) {
-                if($mission->getUtilisateurs()->getId() === (int)$id) {
-                    $data[]['id'] = $mission->getId();
-                    $data[]['libelle'] = $mission->getLibelle();
-                    $data[]['annee'] = $mission->getAnnee();
-                    $data[]['debutAt'] = $mission->getDebutAt();
-                    $data[]['debutAt'] = $mission->getDebutAt();
-                    $data[]['debutAt'] = $mission->getDebutAt();
-                    $data[]['nbreJrReel'] = $mission->getNbreJrReel();
-                    $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
-                    $data[]['impact'] = $mission->getNimpact();
-                    $data[]['gravite'] = $mission->getGravite();
-                }
-            }
-        }
+//        if(!empty($missions)){
+//            foreach ($missions as $mission) {
+//                if($mission->getUtilisateurs()->getId() === (int)$id) {
+//                    $data[]['id'] = $mission->getId();
+//                    $data[]['libelle'] = $mission->getLibelle();
+//                    $data[]['annee'] = $mission->getAnnee();
+//                    $data[]['debutAt'] = $mission->getDebutAt();
+//                    $data[]['debutAt'] = $mission->getDebutAt();
+//                    $data[]['debutAt'] = $mission->getDebutAt();
+//                    $data[]['nbreJrReel'] = $mission->getNbreJrReel();
+//                    $data[]['nbreJrPrevu'] = $mission->getNbreJrPrevu();
+//                    $data[]['impact'] = $mission->getNimpact();
+//                    $data[]['gravite'] = $mission->getGravite();
+//                }
+//            }
+//        }
 
-         return $this->json(["data"=>$data]);
+         return $this->json(["data"=>$missions]);
 
 
     }
