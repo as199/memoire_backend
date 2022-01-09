@@ -1,10 +1,10 @@
 ############################### TOKEN ######################################################
 ### ADMIN TOKEN
-POST {{URL}}/login
+POST {{URL_API}}/login
 Content-Type: application/json
 
 {
-  "username": "dione58242",
+  "username": "sowcheikh",
   "password":"passer"
 }
 
@@ -22,7 +22,7 @@ POST {{URL}}/login
 Content-Type: application/json
 
 {
-  "username": "awa2021",
+  "username": "nouhou",
   "password":"passer"
 }
 
@@ -31,7 +31,7 @@ POST {{URL}}/login
 Content-Type: application/json
 
 {
-  "username": "fatou2021",
+  "username": "auditeur",
   "password":"passer"
 }
 
@@ -84,12 +84,14 @@ Content-Type: application/json
 ############################### UTILISATEUR ######################################################
 
 ### listes des utilisateurs
-GET {{URL}}/utilisateurs
+GET {{URL_API}}/utilisateurs
 Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
 
 ### ajouter utilisateurs
-POST {{URL}}/utilisateurs
+POST {{URL_API}}/utilisateurs
 Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
 
 {
   "username": "test2022",
@@ -299,22 +301,23 @@ Content-Type: application/json
 ############################### ENTITE ######################################################
 
 ### ajouter entite
-POST {{URL}}/entites
+POST {{URL_API}}/entites
 Content-Type: application/json
-Authorization: Bearer {{TOKEN_CHEF_SERVICE}}
+Authorization: Bearer {{TOKEN_ADMIN}}
 
 {
 "libelle": "SAMS",
 "status": true,
-"departements": "5"
+"departements": "1"
 }
 
 <> 2021-11-27T201222.201.json
 <> 2021-11-27T195252.201.json
 
 ### lister tous les entites
-GET {{URL}}/entites
+GET {{URL_API}}/entites
 Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
 
 ### lister une entite
 GET {{URL}}/entites/2
@@ -420,30 +423,37 @@ Content-Type: application/json
 ################################### MISSION ################################################
 
 ### ajouter missions
-POST {{URL}}/missions
+POST {{URL_API}}/missions
 Content-Type: application/json
+Authorization: Bearer {{TOKEN_ADMIN}}
 
 {
-  "libelle": "mission 2",
+  "libelle": "mission 3",
   "annee": "2021",
   "debutAt": "2021-11-28T10:34:29.598Z",
   "finAt": "2021-11-30T10:34:29.598Z",
   "nbreJrReel": 3,
   "nbreJrPrevu": 25,
-  "responables": "12",
+  "responables": 2,
   "utilisateur": [
-    14
+    4
   ],
   "impact": 2,
   "gravite": 2,
   "tauxCimTeste": 20.0,
   "commentaire": "ceci est le commentaire de la mission 2",
-  "entites": "3"
+  "entites": "1"
 }
 
 ### lister les missions
 GET {{URL}}/missions
 Content-Type: application/json
+
+### lister mes missions
+GET {{URL}}/mes_missions
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_AUDITEUR}}
+
 
 ### lister une mission
 GET {{URL}}/missions/3
