@@ -448,7 +448,7 @@ Authorization: Bearer {{TOKEN_ADMIN}}
 ### lister les missions
 GET {{URL}}/missions
 Content-Type: application/json
-Authorization: Bearer {{TOKEN_ADMIN}}
+Authorization: Bearer {{TOKEN_AUDITEUR}}
 
 ### lister mes missions
 GET {{URL}}/mes_missions
